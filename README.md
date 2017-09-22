@@ -10,8 +10,8 @@ To have this project up and running, you first need some basic stuff:
 
 - [Download Python along with Pip](https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe).
 - On Windows, add both your python directory and its `Scripts` subdirectory du your Path.
-- Install Virtualend from the command prompt (`pip install virtualenv`).
-- Install Virtualenvwrapper from the command prompt (`pip install virtualenvwrapper`).
+- Install [Virtualenv](https://virtualenv.pypa.io/en/stable/) from the command prompt (`pip install virtualenv`).
+- Install [Virtualenvwrapper](http://virtualenvwrapper.readthedocs.io/en/latest/) from the command prompt (`pip install virtualenvwrapper`).
 
 ## Installation
 
