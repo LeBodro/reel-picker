@@ -48,7 +48,10 @@ To have this project up and running, you first need some basic stuff.
 
 ## Running a local server
 
-1. ...
+1. Make sure your virtual environment is activated. If not, enter `workon reel-picker-api` (or `workon whatever-name-you-chose`).
+2. Enter `set FLASK_APP=main.py`. On Linux or MacOS, user `export` instead of `set`.
+3. Enter `flask run`.
+4. The server should start and show you a live log. If not, read what prevented your server from functionning and find (or ask for) a solution.
 
 ## Building the App
 
