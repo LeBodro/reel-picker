@@ -1,1 +1,1 @@
-web: flask run --host 127.0.0.1 --port 443
+web: gunicorn -k gevent main:app
