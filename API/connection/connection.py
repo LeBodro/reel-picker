@@ -1,32 +1,22 @@
-from flask import Flask, redirect, url_for, session
+"""
+    Connection functions
+"""
 import sqlite3
 import hashlib
-import os
-
-
-app = Flask(__name__)
-app.secret_key = os.urandom(12)
-
-
-def login(username:str, password:str):
-    if session.get('logged_in'):
-        return redirect(url_for('hello'))
-
-    username = username
-    password = password
-    validate(username, password)
-
+from flask import session
 
 def logged_in():
     return session.get('logged_in')
 
+def log_in():
+    session['logged_in'] = True
 
 def logout():
     session['logged_in'] = False
 
 
 def validate(username, password):
-    con = sqlite3.connect('static/user.db')
+    con = sqlite3.connect("User.db")
     completion = False
     with con:
         cur = con.cursor()
