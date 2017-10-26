@@ -6,6 +6,9 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/materialize.min.css') }}"
           media="screen,projection"/>
+    <!--Import style.css-->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"
+          media="screen,projection"/>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -14,13 +17,23 @@
 </head>
 
 <body>
+    {% if connected == True %}
 <nav>
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo">ReelPicker</a>
+        <a href="#" class="brand-logo">ReelPicker - connected </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         </ul>
     </div>
 </nav>
+    {% else %}
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">ReelPicker - Pas connected </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+    </div>
+</nav>
+    {% endif %}
 
 <div class="container">
     {% block content %}

@@ -20,7 +20,7 @@ def login():
         else:
             session['logged_in'] = True
             return redirect(url_for('hello'))
-    return render_template('login.html', error=error)
+    return render_template('login.html', error=error, connected=False)
 
 @app.route('/logout')
 def logout():
