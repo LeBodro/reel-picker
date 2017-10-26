@@ -1,1 +1,1 @@
-web: flask run
+web: gunicorn -w 4 -b 127.0.0.1:443 main:app
