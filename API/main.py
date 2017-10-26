@@ -16,7 +16,7 @@ def login():
     if request.method == 'POST':
         connection.login(request.form['username'], request.form['password'])
         if connection.logged_in() is False:
-            error = "Nom d'utilisateur ou mot de passe incorrect. Merci de réessayer."
+            error = "Nom d'utilisateur ou mot de passe incorrect. Merci de reessayer."
         else:
             session['logged_in'] = True
             return redirect(url_for('hello'))
