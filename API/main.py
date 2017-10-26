@@ -13,12 +13,11 @@ def login():
         return redirect(url_for('hello'))
 
     error = None
-    if request.method == 'POST':
-        connection.login(request.form['username'], request.form['password'])
-        if connection.logged_in() is False:
+    if request.method == 'POST':        
+        if connection.validate(request.form['username'], request.form['password']) is False:
             error = "Nom d'utilisateur ou mot de passe incorrect. Merci de reessayer."
         else:
-            session['logged_in'] = True
+            connection.log_in()
             return redirect(url_for('hello'))
 
     return render_template('login.html', error=error, connected=True)
@@ -41,3 +40,6 @@ def hello(name=None):
 
 def check_password(hashed_password, user_password):
     return hashed_password == hashlib.md5(user_password.encode()).hexdigest()
+
+if __name__ == '__main__':
+    app.run()
