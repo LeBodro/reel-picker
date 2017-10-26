@@ -1,1 +1,1 @@
-web: gunicorn -w 4 -b 127.0.0.1:443 main:app
+web: flask run --host 127.0.0.1 --port 443
