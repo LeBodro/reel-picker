@@ -20,7 +20,7 @@ def login():
             connection.log_in()
             return redirect(url_for('hello'))
 
-    return render_template('login.html', error=error, connected=True)
+    return render_template('login.html', error=error, connected=connection.logged_in())
 
 
 @app.route('/logout')
@@ -35,7 +35,7 @@ def hello(name=None):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     else:
-        return render_template('hello.html', name=name)
+        return render_template('hello.html', name=name, connected=connection.logged_in())
 
 
 def check_password(hashed_password, user_password):
