@@ -4,10 +4,11 @@ import sqlite3, hashlib, os
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
 
+
 # Go to login page
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    #already logged ?
+    # already logged ?
     if session.get('logged_in'):
         return redirect(url_for('hello'))
     error = None
@@ -22,6 +23,7 @@ def login():
             return redirect(url_for('hello'))
     return render_template('login.html', error=error, connected=False)
 
+
 @app.route('/logout')
 def logout():
     if not session.get('logged_in'):
@@ -29,6 +31,7 @@ def logout():
     else:
         session['logged_in'] = False
         return redirect(url_for('login'))
+
 
 @app.route('/hello/')
 @app.route('/hello/<name>')
@@ -39,7 +42,7 @@ def hello(name=None):
         return render_template('hello.html', name=name)
 
 
-#TODO change this into an other file
+# TODO change this into an other file
 # CHECK the user imput with the db value
 def validate(username, password):
     con = sqlite3.connect('static/user.db')
@@ -49,11 +52,12 @@ def validate(username, password):
         cur.execute("SELECT * FROM Users")
         rows = cur.fetchall()
         for row in rows:
-            dbUser = row[0]
-            dbPass = row[1]
-            if dbUser==username:
-                completion=check_password(dbPass, password)
+            db_user = row[0]
+            db_pass = row[1]
+            if db_user == username:
+                completion=check_password(db_pass, password)
     return completion
+
 
 def check_password(hashed_password, user_password):
     return hashed_password == hashlib.md5(user_password.encode()).hexdigest()
