@@ -28,6 +28,12 @@ def logout():
     connection.logout()
     return redirect(url_for('login'))
 
+@app.route('/search')
+def search():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    else:
+        return render_template('search.html', connected=connection.logged_in())
 
 @app.route('/hello/')
 @app.route('/hello/<name>')

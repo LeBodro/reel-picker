@@ -20,9 +20,9 @@ body {
     color: white;
 }
 
-/*
+/*****
     NAVBAR
-*/
+*****/
 .nav-extended {
     background-color: black;
     background-image: url("../images/strip-motif.png");
@@ -50,11 +50,20 @@ body {
 }
 .tabs.tabs-transparent .indicator {
     background-color: #45B3BF;
-  }
+}
 
-/*
+/*****
+    SPAN (for profile)
+*****/
+span.badge.new {
+    color: #000;
+    background-color: #D92579;
+    border-radius: 10px;
+}
+
+/*****
     LOGO
-*/
+*****/
 #logo-text {
     display: inline-block;
     color: #45B3BF;
@@ -67,3 +76,18 @@ body {
     width: 150%;
     margin-left: 10px;
 }
+
+
+/*****
+    SERACH OPTIONS
+*****/
+.collapsible {
+    color: #000;
+    font-size: 15px;
+}
+
+/*
+.collapsible-header {
+    background-color: #45B3BF;
+}
+*/
